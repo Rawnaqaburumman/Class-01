@@ -1,7 +1,8 @@
 import React from 'react';
-import HornedBeast from './HornedBeast';
+// import HornedBeast from './HornedBeast';
+// import data from './data.json'
 class Main extends React.Component {
-    render(){
+    render() {
         return(
             <div>
             <main>
@@ -18,11 +19,14 @@ description="A unicorn and a narwhal nuzzling their horns"
 
 
 />
+
+
             </main>
 
             </div>
-        )
+        );
     }
 }
 
 export default Main;
+
