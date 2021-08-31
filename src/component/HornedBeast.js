@@ -2,8 +2,9 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button'
+import App from '../App';
 class HornedBeast extends React.Component{
-
+    
     constructor(props) {
         super(props);
         this.state = {
@@ -13,16 +14,18 @@ class HornedBeast extends React.Component{
 
 
     increasing = () => {
-
+        
         this.setState({
             numvotes: this.state.numvotes + 1
         });
+        this.props.handleClose(this.props.title,this.props.description,this.props.imageUrl);
     }
 
 
 
 
 render() {
+    //console.log(this.props);
     return(
 <div style = {{width:'19%' , height:'25%' , backgroundColor:'red'}}>
 
@@ -44,7 +47,7 @@ render() {
   <Card.Text>
   {this.state.numvotes} ❤️ 
   </Card.Text>
-  <Button onClick={this.increasing}>Add to your favorite </Button>
+  <Button onClick={this.increasing} >Add to your favorite </Button>
 </Card.Body>
 </Card>
 {/* <h2>{this.props.title}</h2>
