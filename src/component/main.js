@@ -1,5 +1,4 @@
 import React from 'react';
-import data from './assests/data.json';
 import HornedBeast from './HornedBeast';
 
 class Main extends React.Component{
@@ -14,10 +13,11 @@ render() {
 return (
     <HornedBeast title = {array.title} 
     description = {array.description}
-    imageUrl = {array.image_url}
+    image_url= {array.image_url}
     keyword ={array.keyword}
     horns = {array.horns}
    handleClose ={this.props.handleClose}
+   showingmdel={this.props.showingmdel}
     />
   
 

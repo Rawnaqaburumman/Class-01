@@ -2,7 +2,6 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button'
-import App from '../App';
 class HornedBeast extends React.Component{
     
     constructor(props) {
@@ -18,10 +17,13 @@ class HornedBeast extends React.Component{
         this.setState({
             numvotes: this.state.numvotes + 1
         });
-        this.props.handleClose(this.props.title,this.props.description,this.props.imageUrl);
+      ;
     }
 
-
+showing = () => {
+    
+ this.props.showingmdel(this.props.title, this.props.description, this.props.image_url)
+}
 
 
 render() {
@@ -31,8 +33,9 @@ render() {
 
 
 
-<Card style={{ width: '18rem' }}>
-<Card.Img variant="top" src={this.props.imageUrl} />
+<Card style={{ width: '18rem' }} onClick={this.showing}>
+
+<Card.Img variant="top" src={this.props.image_url} />
 <Card.Body>
   <Card.Title> {this.props.title}</Card.Title>
   <Card.Text>
@@ -47,7 +50,7 @@ render() {
   <Card.Text>
   {this.state.numvotes} ❤️ 
   </Card.Text>
-  <Button onClick={this.increasing} >Add to your favorite </Button>
+  <Button onClick={this.increasing}  >Add to your favorite </Button>
 </Card.Body>
 </Card>
 {/* <h2>{this.props.title}</h2>

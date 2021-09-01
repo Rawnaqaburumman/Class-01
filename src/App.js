@@ -4,62 +4,85 @@ import Main from './component/main';
 import data from './component/assests/data.json';
 import Footer from './component/footer';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Card from 'react-bootstrap/Card';
-import HornedBeast from './component/HornedBeast';
 import SelectedBeast from './component/SelectedBeast'
+import HornedForm from './component/hornedform';
 
 
+class App extends React.Component {
 
-class App extends React.Component{
 
+  constructor(props) {
+    super(props);
 
-    constructor(props) {
-        super(props);
-        {
-          this.state = {
-        show: false,
-         title:'',
-         description:'',
-         imageUrl:'',
+    this.state = {
+      show: false,
+      title: '',
+      description: '',
+      image_url:'',
+      newimage:''
+    }
 
-          }
-        }
-      };
-    
-      handleClose = (title ,description,imageUrl) => {
-        this.setState ({ show:true},
-       {title:this.title},
-       {description:this.description}
-       ) 
-      }
-    
-render() {
+    this.setState({
+      newimage: parametersArray[0],
+      title: title
+    })
+
+  };
+
+ showingmdel = (title, description, image_url) => {
+   console.log(title, description, image_url);
+    this.setState( {show: true ,
+      title:title ,
+       description: description ,
+       image_url:image_url
+     } )
+  }
+
+  
+  handleClose= () =>{
+    this.setState({show:false})
+  }
+
+ 
+
+  new = (parametersArray) => {
+    console.log(parametersArray);
+    this.setState({
+      parametersArray: parametersArray
+    });
+  }
+  render() {
 
 
 
 
     return (
-        <div className = 'App'>
-<Header/>
-<Main thedata={data} 
-handleClose ={this.handleClose}
-/>
-<SelectedBeast
-
-handleClose={this.handleClose}
-show={this.state.show}
-data={data}
-title={this.state.title}
-description={this.state.description}
-image_url={this.state.image_url}/>
+      <div className='App'>
+        <Header />
+        <HornedForm new={this.new} />
+        <Main thedata={data}
+          handleClose={this.handleClose}
+          showingmdel={this.showingmdel}
+        />
 
 
+        <SelectedBeast
 
-<Footer/>
+          handleClose={this.handleClose}
+          show={this.state.show}
+          data={data}
+          title={this.state.title}
+          description={this.state.description}
+          imageUrl={this.state.image_url} />
+          newimage={this.state.newimage}
 
-</div>
+
+        <Footer />
+
+      </div>
     );
-}}
+  }
+}
 
 export default App;
 
