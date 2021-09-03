@@ -19,7 +19,8 @@ class App extends React.Component {
       title: '',
       description: '',
       image_url:'',
-      newimage:''
+      newimage:'',
+      parametersArray:''
     }
 
     this.setState({
@@ -48,7 +49,7 @@ class App extends React.Component {
   new = (parametersArray) => {
     console.log(parametersArray);
     this.setState({
-      parametersArray: parametersArray
+      parametersArray:this.state.parametersArray
     });
   }
   render() {

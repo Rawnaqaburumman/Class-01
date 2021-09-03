@@ -1,5 +1,5 @@
 import React from 'react';
-import data from '../assest/data.json';
+import data from './assests/data';
 import Form from 'react-bootstrap/Form';
 
 
